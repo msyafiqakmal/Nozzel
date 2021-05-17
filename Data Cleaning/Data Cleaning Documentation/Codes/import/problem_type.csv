@@ -1,0 +1,70 @@
+﻿Problem Type,Problem Category
+AC-Belt Faulty,Air Compressor
+AC-Leaking,Air Compressor
+AC-Noisy / Non-stop,Air Compressor
+AC-Not Working,Air Compressor
+AC-Trip,Air Compressor
+DBox-Not Working,Dispenser
+HP-Bway Dropped Off,Hose
+HP-Bway Faulty,Hose
+HP-Bway Leaking,Hose
+HP-Bway Pulled Off,Hose
+HP-LongHose Dropped,Hose
+HP-LongHose Faulty,Hose
+HP-LongHose Leaking,Hose
+HP-LongHose Pulled,Hose
+HP-Nzzl Dropped Off,Nozzle
+HP-Nzzl Faulty,Nozzle
+HP-Nzzl Leaking,Nozzle
+HP-Nzzl No Auto Stop,Nozzle
+HP-Nzzl Pulled Off,Nozzle
+HP-Nzzl Splash Guard,Nozzle
+HP-ShortHose Dropped,Hose
+HP-ShortHose Faulty,Hose
+HP-ShortHose Leaking,Hose
+HP-ShortHose Pulled,Hose
+HP-Swl Joint Dropped,Hose
+HP-Swl Joint Faulty,Hose
+HP-Swl Joint Leaking,Hose
+HP-VisiGauge Leaking,Nozzle
+Other Issue,Other
+P-+/- Dispense,Dispenser
+P-Authorised Itself,Dispenser
+P-DieselCover Faulty,Dispenser
+P-Diplay Error Code,Dispenser
+P-Emergency Button,Dispenser
+P-Flap/Booth Faulty,Dispenser
+P-Hit By Vehicle,Dispenser
+P-Intermittent,Dispenser
+P-Keypad Faulty,Dispenser
+P-Leaking Inside,Dispenser
+P-Meter X Tally/Blur,Dispenser
+P-No Delivery,Dispenser
+P-Noisy / Shaking,Dispenser
+P-Over/Undershoot,Dispenser
+P-POS/System Hang,Dispenser
+P-Power Supply/Trip,Dispenser
+P-Preset Overrun,Dispenser
+P-Price Incorrect,Dispenser
+P-Slow Delivery,Dispenser
+P-Sticker Faulty,Dispenser
+P-Stop B4 PrestValue,Dispenser
+P-Totalizer Faulty,Dispenser
+PS-Crack,
+STP-No Delivery,STP
+STP-Noisy,STP
+STP-Slow Delivery,STP
+STPContr -NotWorking,STP
+STPContr-Error Code,STP
+STPContr-No power,STP
+STPContr-Noisy,STP
+TI-Chuck Faulty,Tyre Inflator
+TI-Chuck Missing,Tyre Inflator
+TI-Hit By Vehicle,Tyre Inflator
+TI-Hose Faulty,Tyre Inflator
+TI-Hose Missing,Tyre Inflator
+TI-Meter Show Error,Tyre Inflator
+TI-No Pressure,Tyre Inflator
+TI-Pointer/Glass,Tyre Inflator
+TI-Sticker faulty,Tyre Inflator
+TI-Vandalism/Damage,Tyre Inflator
