@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PETRONAS GTD PREDICTIVE ANALYSIS | UM</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="images/logo.png">
+  
+  <!-- style -->
+  <link rel="stylesheet" href="css/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css css/styles/app.min.css -->
+  <link rel="stylesheet" href="css/app.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <!-- endbuild -->
+  <link rel="stylesheet" href="css/font.css" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <!-- jQuery -->
+	<script src="libs/jquery/dist/jquery.js"></script>
+
+  <script src="libs/select2/dist/js/select2.min.js"></script>
+  <link rel="stylesheet" href="libs/select2/dist/css/select2.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/select2-bootstrap-theme/dist/select2-bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/select2-bootstrap-theme/dist/select2-bootstrap.4.css" type="text/css" />
+
+  
+  <script src="scripts/utils.js"></script>
+
+
+
+  <!-- DataTables -->
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+
+<!--   <link rel="stylesheet" href="css/jquery.dataTables.min.css" type="text/css" />
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+
+  <style type="text/css">
+.mychart{
+   width:300px;
+   height:150px;
+}
+
+legend: {
+    noColumns: 0,
+    labelBoxBorderColor: "#858585",
+    position: "ne"
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+</style>
+
+<script type="text/javascript">
+		$(document).ready(function() {
+    $('#mtbf-table').DataTable( {
+        columnDefs: [ {
+            targets: [ 0 ],
+            orderData: [ 0, 1 ]
+        }, {
+            targets: [ 1 ],
+            orderData: [ 1, 0 ]
+        }, {
+            targets: [ 4 ],
+            orderData: [ 4, 0 ]
+        } ]
+    } );
+
+    $('#prediction-table').DataTable( {
+        columnDefs: [ {
+            targets: [ 0 ],
+            orderData: [ 0, 1 ]
+        }, {
+            targets: [ 1 ],
+            orderData: [ 1, 0 ]
+        }, {
+            targets: [ 4 ],
+            orderData: [ 4, 0 ]
+        } ]
+    } );
+} );
+	</script>
+
+
+  
+</head>
+<body class="container">
+
+	<div class="app" id="app">
+	<!-- ############ LAYOUT START-->
+
+		<!-- content -->
+		<div id="content" class="app-content box-shadow-z3" role="main">
+
+			<div  class="navbar-md white box-shadow">
+				<div class="container">
+					<div class="navbar">
+						<!-- Open side - Naviation on mobile -->
+						<a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up">
+							<i class="material-icons">&#xe5d2;</i>
+						</a>
+						<!-- / -->
+
+						<!-- brand -->
+						<a class="navbar-brand md" href="index.html">
+							<img src="images/logo.png">
+							<span class="hidden-folded inline">PETRONAS GTD PREDICTIVE ANALYSIS</span>
+						</a>
+						<!-- / brand -->
+
+						<ul class="nav navbar-nav pull-right">
+							<li class="nav-item dropdown">
+								<a class="nav-link" href="" data-toggle="dropdown">
+								  <span class="avatar w-32">
+									<img src="images/a3.jpg" alt="...">
+									<i class="on b-white bottom"></i>
+								  </span>
+														<span class="hidden-md-down nav-text m-l-sm text-left">
+									<span class="_500">Rose Martin</span>
+									<small class="text-muted">Administrator</small>
+								  </span>
+								</a>
+								<div class="dropdown-menu pull-right dropdown-menu-scale">
+									<a class="dropdown-item" ui-sref="app.inbox.list">
+										<span>Inbox</span>
+										<span class="label warn m-l-xs">3</span>
+									</a>
+									<a class="dropdown-item" ui-sref="app.page.profile">
+										<span>Profile</span>
+									</a>
+									<a class="dropdown-item" ui-sref="app.page.setting">
+										<span>Settings</span>
+										<span class="label primary m-l-xs">3/9</span>
+									</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" ui-sref="app.docs">
+										Need help?
+									</a>
+									<a class="dropdown-item" ui-sref="access.signin">Sign out</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link p-l b-l" href="" data-toggle="dropdown" aria-expanded="false">
+									<i class="material-icons"></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-scale pull-right text-color" role="menu">
+									<a class="dropdown-item" href="">Action</a>
+									<a class="dropdown-item" href="">Another action</a>
+									<a class="dropdown-item" href="">Something else here</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="">Separated link</a>
+								</div>
+							</li>
+						</ul>
+
+
+					</div>
+				</div>
+			</div>
+
+			<!-- CONTENT VIEW -->
+			<div ui-view class="app-body" id="view" style="min-height: 550px;">
+
+
+				<!-- ############ PAGE START-->
+				<div class="block" style="position: relative;">
+					<div class="row-col">
+						<div class="col-sm-3 col-lg-2">
+							<div class="p-y">
+								<div class="nav-active-border left b-primary">
+									<ul class="nav nav-sm">
+										<li class="nav-item">
+											<a class="nav-link block active" href data-toggle="tab" data-target="#tab-1">Dashboard</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link block" href data-toggle="tab" data-target="#tab-2">Input Vendor Data</a>
+										</li>
+										<!-- Striked out temporarily -->
+										<!-- <li class="nav-item">
+											<a class="nav-link block" href data-toggle="tab" data-target="#tab-3">Input Inspection Data</a>
+										</li> -->
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-9 col-lg-10 p-r ">
+							<div class="white lt bg-auto">
+								<div class="tab-content pos-rlt m-t">
+
+									<!-- TAB 1 -->
+									<div class="tab-pane active" id="tab-1">
+										<div class="box-header p-a-sm">
+
+											<div class="padding row">
+<div class="col-xs-12 col-sm-4">
+    <div class="box p-a">
+      <div class="pull-left m-r">
+        <span class="w-48 rounded  primary">
+          <i class="fa fa-list-alt"></i>
+        </span>
+      </div>
+      <div class="clear">
+        <h4 class="m-0 text-lg _300"><a href>1150 <span class="text-sm">Total Failures</span></a></h4>
+        <small class="text-muted">Since 1st January 2017</small>
+      </div>
+    </div>
+</div>
+
+<div class="col-xs-12 col-sm-4">
+    <div class="box p-a">
+      <div class="pull-left m-r">
+        <span class="w-48 rounded  primary">
+          <i class="fa fa-exchange"></i>
+        </span>
+      </div>
+      <div class="clear">
+        <h4 class="m-0 text-lg _300"><a href>1234 <span class="text-sm">Transactions</span></a></h4>
+        <small class="text-muted">Since 1st October 2018</small>
+      </div>
+    </div>
+</div>
+
+<div class="col-xs-12 col-sm-4">
+    <div class="box p-a">
+      <div class="pull-left m-r">
+        <span class="w-48 rounded  primary">
+          <i class="fa fa-wrench"></i>
+        </span>
+      </div>
+      <div class="clear">
+        <h4 class="m-0 text-lg _300"><a href>319 <span class="text-sm">Equipments Repaired</span></a></h4>
+        <small class="text-muted">Since 7th October 2018</small>
+      </div>
+    </div>
+</div>
+</div>
+										</div>
+
+										<div class="block white b-a" style="min-height: 200px;">
+
+											<div class="b-b b-primary nav-active-primary no-radius m-t">
+												<ul class="nav nav-tabs">
+													<li class="nav-item no-radius" id="header-tab-1">
+														<a class="nav-link active" href="" data-toggle="tab" data-target="#T1" aria-expanded="true" id="trigger-2">Predictive Analysis</a>
+													</li>
+													<li class="nav-item no-radius" id="header-tab-2">
+														<a class="nav-link" href="" data-toggle="tab" data-target="#T2" aria-expanded="false" id="trigger-1">Failures Summary</a>
+													</li>
+													
+												</ul>
+											</div>
+											<div class="tab-content p-a light ">
+												
+												<div class="tab-pane animated fadeIn text-muted active" id="T1" aria-expanded="true">
+
+													<div class="form-group">
+        <label for="changeStation">Select Gas Station</label>
+        <select id="changeStation" onchange="changeStationChart();" class="form-control select2" ui-jp="select2" ui-options="{theme: 'bootstrap'}">
+          
+          <optgroup label="Kuala Lumpur">
+            <option value="RYW0620">PSS ALAM DAMAI</option>
+            <option value="RYB0075">PSS AU 5 LEMBAH KERAMAT</option>
+            <option value="RYW1259">PSS BATU 5 JALAN GOMBAK</option>
+            <option value="RYW0289">PSS BRICKFIELDS</option>
+          </optgroup>
+          <optgroup label="Selangor">
+            <option value="RYB0189">PSS BATU 6 PEKAN MERU</option>
+            <option value="RYB0974">PSS JALAN HAJI SIRAT</option>
+            <option value="RYB1062">PSS KUANG</option>
+            <option value="RYB1040">PSS ALAM SUTERA</option>
+            <option value="RYB0974">PSS DENGKIL</option>
+            <option value="RYB0723">PSS FEDERAL HIGHWAY BATU 3</option>
+            <option value="RYB0686">PSS GRAND SAGA 3</option>
+          </optgroup>
+          <optgroup label="Kelantan">
+            <option value="RYD0951">PSS JELAWAT</option>
+            <option value="RYD0266">PSS JELI</option>
+            <option value="RYD0526">PSS KASA</option>
+            <option value="RYD0546">PSS KM10 JALAN KUALA KRAI (KOTA BHARU BOUND)</option>
+            <option value="RYD0203">PSS KM5 JALAN SULTAN YAHYA PETRA</option>
+            <option value="RYD0065">PSS KOK LANAS</option>
+            <option value="RYD0228">PSS MACHANG</option>
+            <option value="RYD0489">PSS PERUPOK</option>
+            <option value="RYD0655">PSS PULAU MELAKA</option>
+          </optgroup>
+          <optgroup label="Terengganu">
+            <option value="RYT0533">PSS AJIL</option>
+            <option value="RYT0215">PSS BATU BUROK</option>
+            <option value="RYT1136">PSS BATU RAKIT</option>
+          </optgroup>
+        </select>
+      </div>
+
+													<canvas id="prediction"></canvas>
+
+
+													<table id="prediction-table" class="display table table-striped table-bordered table-sm" style="width:100%">
+															        <thead>
+															            <tr>
+															                <th>Station</th>
+															                <th>Pump No</th>
+															                <th>Equipment</th>
+															                <th>Gas Fuel Type</th>
+															                <th>Last Corrective Maintenance Date</th>
+															                <th>MTBF</th>
+															                <th>Remaining Expected Life</th>
+															                <th>Expected Failure Date</th>
+															                <th>Intervention Date</th>
+															            </tr>
+															        </thead>
+															        <tbody>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>1</td>
+															                <td>Hose</td>
+															                <td>Primax 95</td>
+															                <td>3rd July 2018</td>
+															                <td>100 days</td>
+															                <td><span class="label warn">7 days</span></td>
+															                <td>13th September 2018</td>
+															                <td>9th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>1</td>
+															                <td>Nozzle</td>
+															                <td>Primax 97</td>
+															                <td>7th August 2018</td>
+															                <td>400 days</td>
+															                <td>11 days</td>
+															                <td>17th September 2018</td>
+															                <td>16th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td><span class="label danger">3 days</span></td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															            <tr>
+															                <td>Balakong</td>
+															                <td>2</td>
+															                <td>Hose</td>
+															                <td>Diesel</td>
+															                <td>19th December 2018</td>
+															                <td>300 days</td>
+															                <td>13 days</td>
+															                <td>19th September 2018</td>
+															                <td>17th September 2018</td>
+															            </tr>
+															        </tbody>
+															    </table>
+													
+										          	<!-- <div id="chartContainer" style="height: 400px; width: 100%;"></div> -->
+										            <!-- <div id="flot-placeholder" class="mychart"></div> -->
+										          </div>
+
+										          <div class="tab-pane animated fadeIn text-muted" id="T2" aria-expanded="false">
+
+<div class="form-group row">
+      <label for="selectChartDataSrc" class="col-sm-2 form-control-label">Select Data Source</label>
+      <div class="col-sm-3">
+        <select id="selectChartDataSrc" onchange="changeStationDataSrc();" class="form-control input-c">
+        	<option value="gastype" selected="selected">Gas Type</option>
+        	<option value="equipment">Equipment</option>
+        </select>
+      </div>
+    </div>
+
+													<div class="box">
+														<div class="box-body">
+															
+															<canvas id="failure-report"></canvas>
+															<table id="mtbf-table" class="display table table-striped table-bordered table-sm" style="width:100%">
+														        <thead>
+														            <tr>
+														                <th>Station</th>
+														                <th>Pump No</th>
+														                <th>Equipment</th>
+														                <th>Gas Fuel Type</th>
+														                <th>Last Corrective Maintenance Date</th>
+														            </tr>
+														        </thead>
+														        <tbody>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>1</td>
+														                <td>Hose</td>
+														                <td>Primax 95</td>
+														                <td>3rd July 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>1</td>
+														                <td>Nozzle</td>
+														                <td>Primax 97</td>
+														                <td>7th August 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														            <tr>
+														                <td>Balakong</td>
+														                <td>2</td>
+														                <td>Hose</td>
+														                <td>Diesel</td>
+														                <td>19th December 2018</td>
+														            </tr>
+														        </tbody>
+														    </table>
+
+														</div>
+
+													</div>
+
+													<!-- <div class="row padding"><center>
+														<div class="inline m-sm">
+															<label for="gas-type">Gas Type</label>
+															<select name="gas-type" class="form-control form-control-sm" id="filter_type">
+																<option value="0" selected="">Primax 95</option>
+																<option value="1">Primax 97</option>
+																<option value="2">Diesel</option>
+															</select>
+														</div>
+														<div class="inline m-sm">
+															<label for="gas-type">Pump No.</label>
+															<select class="form-control form-control-sm" id="pump-mtbf" onchange="hideBoxes()">
+																<option value="0">All Pump</option>
+																<option value="1" selected="">Pump 01</option>
+																<option value="2">Pump 02</option>
+																<option value="3">Pump 03</option>
+																<option value="4">Pump 04</option>
+																<option value="5">Pump 05</option>
+																<option value="6">Pump 06</option>
+																<option value="7">Pump 07</option>
+																<option value="8">Pump 08</option>
+																<option value="9">Pump 09</option>
+																<option value="10">Pump 10</option>
+																<option value="11">Pump 11</option>
+																<option value="12">Pump 12</option>
+															</select>
+														</div></center>
+
+													</div>
+
+													<div class="row m-b padding">
+
+
+													<div class="col-sm-4" id="box-detail-2">
+												      <div class="box">
+												        <div class="box-header primary">
+												          <h3><center>Mean Time Before Failure</center></h3>
+												        </div>
+												        <div class="box-body">
+												          <p class="m-a-0"><center>100 Days</center></p>
+												        </div>
+												      </div>
+												    </div>
+
+												    <div class="col-sm-4" id="box-detail-3">
+												      <div class="box">
+												        <div class="box-header primary">
+												          <h3><center>Last Corrective Maintenance</center></h3>
+												        </div>
+												        <div class="box-body">
+												          <p class="m-a-0"><center>3rd July 2018</center></p>
+												        </div>
+												      </div>
+												    </div>
+
+												    <div class="col-sm-4" id="box-detail-4">
+												      <div class="box">
+												        <div class="box-header primary">
+												          <h3><center>Remaining Expected Life</center></h3>
+												        </div>
+												        <div class="box-body">
+												          <p class="m-a-0"><center>7 Days</center></p>
+												        </div>
+												      </div>
+												    </div>
+												</div>
+												<div class="padding row m-b">
+													<div class="col-sm-4" id="box-detail-1">
+												      <div class="box">
+												        <div class="box-header primary">
+												          <h3><center>Expected Failure Date</center></h3>
+												        </div>
+												        <div class="box-body">
+												          <p class="m-a-0"><center>13 Sept 2018</center></p>
+												        </div>
+												      </div>
+												    </div>
+
+												    <div class="col-sm-4" id="box-detail-1">
+												      <div class="box">
+												        <div class="box-header primary">
+												          <h3><center>Suggested Intervention Date</center></h3>
+												        </div>
+												        <div class="box-body">
+												          <p class="m-a-0"><center>17 Oct 2018</center></p>
+												        </div>
+												      </div>
+												    </div>
+
+												</div> -->
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+									<!-- TAB 2 -->
+									<div class="tab-pane" id="tab-2">
+
+										<div class="box">
+        <div class="box-header">
+          <h2>Vendor Reporting Input</h2>
+          <small>Vendor will report the fixes for the equipments here.</small>
+        </div>
+        <div class="box-divider m-0"></div>
+        <div class="box-body">
+          <form role="form">
+            
+            
+            
+            <div class="form-group row">
+              <label for="inputstation" class="col-sm-2 form-control-label">Gas Station</label>
+              <div class="col-sm-10">
+              	<select id="inputstation" class="form-control select2 c-select" ui-jp="select2" ui-options="{theme: 'bootstrap'}">
+          <optgroup label="Kuala Lumpur">
+            <option value="RYW0620">PSS ALAM DAMAI</option>
+            <option value="RYB0075">PSS AU 5 LEMBAH KERAMAT</option>
+            <option value="RYW1259">PSS BATU 5 JALAN GOMBAK</option>
+            <option value="RYW0289">PSS BRICKFIELDS</option>
+          </optgroup>
+          <optgroup label="Selangor">
+            <option value="RYB0189">PSS BATU 6 PEKAN MERU</option>
+            <option value="RYB0974">PSS JALAN HAJI SIRAT</option>
+            <option value="RYB1062">PSS KUANG</option>
+            <option value="RYB1040">PSS ALAM SUTERA</option>
+            <option value="RYB0974">PSS DENGKIL</option>
+            <option value="RYB0723">PSS FEDERAL HIGHWAY BATU 3</option>
+            <option value="RYB0686">PSS GRAND SAGA 3</option>
+          </optgroup>
+          <optgroup label="Kelantan">
+            <option value="RYD0951">PSS JELAWAT</option>
+            <option value="RYD0266">PSS JELI</option>
+            <option value="RYD0526">PSS KASA</option>
+            <option value="RYD0546">PSS KM10 JALAN KUALA KRAI (KOTA BHARU BOUND)</option>
+            <option value="RYD0203">PSS KM5 JALAN SULTAN YAHYA PETRA</option>
+            <option value="RYD0065">PSS KOK LANAS</option>
+            <option value="RYD0228">PSS MACHANG</option>
+            <option value="RYD0489">PSS PERUPOK</option>
+            <option value="RYD0655">PSS PULAU MELAKA</option>
+          </optgroup>
+          <optgroup label="Terengganu">
+            <option value="RYT0533">PSS AJIL</option>
+            <option value="RYT0215">PSS BATU BUROK</option>
+            <option value="RYT1136">PSS BATU RAKIT</option>
+          </optgroup>
+        </select>
+              </div>
+            </div>
+
+			<div class="form-group row">
+              <label class="col-sm-2 form-control-label">Problem Type</label>
+              <div class="col-sm-10">
+                <select class="form-control input-c">
+		        	<option>Breakaway Coupling Dislodged</option>
+					<option>Breakaway Coupling Leaking</option>
+					<option>Guard Worn Out/Missing</option>
+					<option>Hose Deformed</option>
+					<option>Hose Leaking</option>
+					<option>Hose Worn Off/Leaking</option>
+					<option>Latch Spring Faulty</option>
+					<option>Latch Spring Missing/Broken</option>
+					<option>No Auto Stop</option>
+					<option>Short Hose Came Off</option>
+					<option>Short Hose Cracked</option>
+					<option>Short Hose Leaking</option>
+					<option>Spout Leaking</option>
+					<option>Spout Spring Broken/Missing</option>
+					<option>Swivel Joint Leaking</option>
+					<option>Trigger Loose/Hard To Press</option>
+		        </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="replacement" class="col-sm-2 form-control-label">Replacement Parts  No.</label>
+              <div class="col-sm-10">
+                <input type="text" id="replacement" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="attach" class="col-sm-2 form-control-label">Attachment</label>
+              <div class="col-sm-10">
+                <input type="file" id="attach" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 form-control-label">Description</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="form-group row m-t-md">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn white">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+										
+									</div>
+								</div>
+
+									<!-- TAB 3 -->
+									<!-- <div class="tab-pane" id="tab-3">
+										<div class="p-a-md dker _600">Emails</div>
+										<form role="form" class="p-a-md col-md-6">
+											<p>E-mail me whenever</p>
+											<div class="checkbox">
+												<label class="ui-check">
+													<input type="checkbox"><i class="dark-white"></i> Anyone posts a comment
+												</label>
+											</div>
+											<div class="checkbox">
+												<label class="ui-check">
+													<input type="checkbox"><i class="dark-white"></i> Anyone follow me
+												</label>
+											</div>
+											<div class="checkbox">
+												<label class="ui-check">
+													<input type="checkbox"><i class="dark-white"></i> Anyone send me a message
+												</label>
+											</div>
+											<div class="checkbox">
+												<label class="ui-check">
+													<input type="checkbox"><i class="dark-white"></i> Anyone invite me to group
+												</label>
+											</div>
+											<button type="submit" class="btn btn-info m-t">Update</button>
+										</form>
+									</div> -->
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<!-- / -->
+
+
+	<!-- ############ LAYOUT END-->
+	</div>
+
+<!-- 	<script type="text/javascript">
+		$(document).ready(function() {
+		  $('#update-vendor').on('submit', function(e){
+		      $('#m').modal('show');
+		      e.preventDefault();
+		  });
+
+		  
+		});
+
+	</script>
+ -->
+	<!-- .modal -->
+<div id="m" class="modal" data-backdrop="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h5 class="modal-title">Update</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+        <p>Data updated !</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn success p-x-md" data-dismiss="modal">Ok</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+
+
+<!-- / .modal -->
+	<!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+	<!-- build:js scripts/app.html.js -->
+	
+	<script src="https://cdn.jsdelivr.net/jquery.flot/0.8.3/jquery.flot.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="libs/tether/dist/js/tether.min.js"></script>
+	<script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+	<!-- core -->
+	<script src="libs/underscore/underscore-min.js"></script>
+	<script src="libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+	<script src="libs/PACE/pace.min.js"></script>
+
+	<script src="config.lazyload.js"></script>
+
+	<script src="scripts/palette.js"></script>
+	<script src="scripts/ui-load.js"></script>
+	<script src="scripts/ui-jp.js"></script>
+	<script src="scripts/ui-include.js"></script>
+	<script src="scripts/ui-device.js"></script>
+	<script src="scripts/ui-form.js"></script>
+	<script src="scripts/ui-nav.js"></script>
+	<script src="scripts/ui-scroll-to.js"></script>
+	<script src="scripts/ui-toggle-class.js"></script>
+
+	<!-- ajax -->
+	<script src="libs/jquery-pjax/jquery.pjax.js"></script>
+	<script src="scripts/ajax.js"></script>
+
+	<!-- flot chart horizontal bar -->
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/js/flot/excanvas.min.js"></script><![endif]-->
+	<script type="text/javascript" src="libs/flot/jquery.flot.min.js"></script>
+	<script type="text/javascript" src="libs/flot/jquery.flot.time.js"></script>    
+	<script type="text/javascript" src="libs/flot/jshashtable-2.1.js"></script>    
+	<script type="text/javascript" src="libs/flot/jquery.numberformatter-1.2.3.min.js"></script>
+	<script type="text/javascript" src="libs/flot/jquery.flot.symbol.js"></script>
+	<script type="text/javascript" src="libs/flot/jquery.flot.axislabels.js"></script>
+
+	<script src="scripts/app.js"></script>
+
+	
+	<!-- endbuild -->
+
+	<script type="text/javascript">
+			function displayAverageOnly(val) {
+		    var station_mtbf = $("#station-mtbf").val();
+		    var equipment_mtbf = $("#equipment-mtbf").val();
+			    if(station_mtbf==0 && equipment_mtbf==0) {
+			        $('#header-tab-2').hide();
+			        $('#trigger-1').trigger('click');
+			    }else{
+			    	$('#header-tab-2').show();
+			    }
+			}
+
+			function hideBoxes(){
+				var pump_mtbf = $("#pump-mtbf").val();
+				if(pump_mtbf == 0){
+					$("#box-detail-1").hide();
+					$("#box-detail-2").hide();
+					$("#box-detail-3").hide();
+					$("#box-detail-4").hide();
+				}else{
+					$("#box-detail-1").show();
+					$("#box-detail-2").show();
+					$("#box-detail-3").show();
+					$("#box-detail-4").show();
+				}
+			} 
+	</script>
+
+<!-- ChartJS -->
+    <script>
+
+		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		var config = {
+			type: 'line',
+			data: {
+				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+				datasets: [{
+					label: 'Primax 95',
+					backgroundColor: window.chartColors.yellow,
+					borderColor: window.chartColors.yellow,
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor()
+					],
+					fill: false,
+				}, {
+					label: 'Primax 97',
+					fill: false,
+					backgroundColor: window.chartColors.green,
+					borderColor: window.chartColors.green,
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor()
+					],
+				}, {
+					label: 'Diesel',
+					fill: false,
+					backgroundColor: window.chartColors.black,
+					borderColor: window.chartColors.black,
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor()
+					],
+				}]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Equipment Failure Report'
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Month'
+						}
+					}],
+					yAxes: [{
+						ticks: {
+                    		beginAtZero: true,
+                		},
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'No of Failures'
+						}
+					}]
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('failure-report').getContext('2d');
+			window.myLine = new Chart(ctx, config);
+		};
+
+	</script>
+<script type="text/javascript">
+
+	
+
+	function changeStationChart(){
+			cfg.data.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return randomScalingFactor();
+				});
+
+			});
+
+			chart.update();
+	}
+
+	function changeStationDataSrc(){
+
+		config.data.datasets.forEach(function(dataset) {
+			dataset.data = dataset.data.map(function() {
+				return randomScalingFactor();
+			});
+
+		});
+
+		window.myLine.update();
+	}
+</script>
+	<script>
+		function randomNumber(min, max) {
+			return Math.round(Math.random() * (max - min) + min);
+		}
+
+		function randomBar(date, lastClose) {
+			var open = randomNumber(0, 100);
+			var close = randomNumber(0, 100);
+			return {
+				t: date.valueOf(),
+				y: close
+			};
+		}
+
+		var dateFormat = 'MMMM DD YYYY';
+		var date = moment('October 11 2017', dateFormat);
+		var data = [randomBar(date, 30)];
+		var labels = [date];
+		while (data.length < 30) {
+			date = date.clone().add(1, 'd');
+			if (date.isoWeekday() <= 5) {
+				data.push(randomBar(date, data[data.length - 1].y));
+				labels.push(date);
+			}
+		}
+
+		var ctx = document.getElementById('prediction').getContext('2d');
+		ctx.canvas.width = 1000;
+		ctx.canvas.height = 300;
+		var cfg = {
+			type: 'bar',
+			data: {
+				labels: labels,
+				datasets: [{
+					label: 'Failures Prediction',
+					data: data,
+					type: 'bar',
+					pointRadius: 0,
+					fill: false,
+					lineTension: 0,
+					borderWidth: 2
+				}]
+			},
+			options: {
+				scales: {
+					xAxes: [{
+						type: 'time',
+						distribution: 'series',
+						ticks: {
+							source: 'labels'
+						}
+					}],
+					yAxes: [{
+						ticks: {
+                    		beginAtZero: true,
+                		},
+						scaleLabel: {
+							display: true,
+							labelString: 'No of Failures'
+						}
+					}]
+				}
+			}
+		};
+		var chart = new Chart(ctx, cfg);
+
+	</script>
+
+	
+
+</body>
+</html>

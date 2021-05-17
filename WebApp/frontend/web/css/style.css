@@ -1,0 +1,132 @@
+
+.devicon{vertical-align:-4px; font-size: 20px;}
+
+#home{
+    border-color:#5a6a7a !important;
+    /*background-color:#FFFFFF;*/
+    filter:none;
+    background:url("../images/bg.jpg") no-repeat fixed top center / 100% auto;
+}
+
+#home .color-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2e3e4e;
+    background: -webkit-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* Chrome 10+, Saf5.1+ */
+    background: -moz-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* FF3.6+ */
+    background: -ms-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* IE10 */
+    background: -o-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* Opera 11.10+ */
+    background: linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* W3C */
+    opacity: 0.7;
+}
+
+#home-corporate{
+    border-color:#5a6a7a !important;
+    /*background-color:#FFFFFF;*/
+    filter:none;
+    background:url("../images/bg.jpg") no-repeat fixed top center / 100% auto;
+}
+
+#home-corporate .color-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2e3e4e;
+    background: -webkit-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* Chrome 10+, Saf5.1+ */
+    background: -moz-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* FF3.6+ */
+    background: -ms-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* IE10 */
+    background: -o-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* Opera 11.10+ */
+    background: linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* W3C */
+    opacity: 0.7;
+}
+
+
+.color-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2e3e4e;
+    background: -webkit-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* Chrome 10+, Saf5.1+ */
+    background: -moz-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* FF3.6+ */
+    background: -ms-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* IE10 */
+    background: -o-linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* Opera 11.10+ */
+    background: linear-gradient(90deg, #2e3e4e 10%, #334456 90%); /* W3C */
+    opacity: 0.7;
+}
+
+
+
+.card-item{
+    display: block;
+    line-height: 1.42857143;
+    border-radius: 0px;
+    transition: box-shadow .25s;
+    box-shadow:none !important;
+    border: 1px solid rgba(120, 130, 140, 0.25);
+}
+
+.card-item:hover {
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2),0 2px 8px 0 rgba(0,0,0,0.19) !important;
+    z-index: 1;
+}
+
+.card-item .card-image{
+    -webkit-transition: opacity .40s ease-in-out;
+    -moz-transition: opacity .40s ease-in-out;
+    -ms-transition: opacity .40s ease-in-out;
+    -o-transition: opacity .40s ease-in-out;
+    transition: opacity .40s ease-in-out;
+    filter: alpha(opacity=1); opacity: 1;
+}
+.card-item:hover .card-image{filter: alpha(opacity=90); opacity: 0.9;}
+
+.img-card {
+    width: 100%;
+    height: 192px;
+    overflow: hidden;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    display: block;
+    overflow: hidden;
+}
+
+
+
+.preloader-btn {
+    display: inline-block;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    border: solid 2px transparent;
+    border-top-color: #2e3e4e;
+    border-left-color: #2e3e4e;
+    border-radius: 10px;
+    -webkit-animation: loading-bar-spinner 400ms linear infinite;
+    -moz-animation: loading-bar-spinner 400ms linear infinite;
+    -ms-animation: loading-bar-spinner 400ms linear infinite;
+    -o-animation: loading-bar-spinner 400ms linear infinite;
+    animation: loading-bar-spinner 400ms linear infinite;
+}
+
+.preloader {
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: solid 2px transparent;
+    border-top-color: #2e3e4e;
+    border-left-color: #2e3e4e;
+    border-radius: 20px;
+    -webkit-animation: loading-bar-spinner 400ms linear infinite;
+    -moz-animation: loading-bar-spinner 400ms linear infinite;
+    -ms-animation: loading-bar-spinner 400ms linear infinite;
+    -o-animation: loading-bar-spinner 400ms linear infinite;
+    animation: loading-bar-spinner 400ms linear infinite;
+}
